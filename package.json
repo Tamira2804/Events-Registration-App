@@ -1,15 +1,20 @@
 {
-  "name": "react-app-template",
+  "name": "events-registration-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Tamira2804.github.io/react-app-template",
+  "homepage": "https://Tamira2804.github.io/Events-Registration-App",
   "dependencies": {
+    "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^6.1.11",
+    "svgo": "^3.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,7 +44,6 @@
   },
   "description": "About Application\r # react-app-template",
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
