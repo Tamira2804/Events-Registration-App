@@ -2,20 +2,32 @@ const express = require('express')
 const router = express.Router()
 const Participant = require('../models/Participant')
 
-router.post('/', async (req, res) => {
-  const participant = new Participant({
-    name: req.body.name,
-    email: req.body.email,
-    dob: req.body.dob,
-    source: req.body.source,
-    event: req.body.eventId,
-  })
+router.get('/:eventId', async (req, res) => {
   try {
-    const newParticipant = await participant.save()
-    res.status(201).json(newParticipant)
+    const eventId = req.params.eventId
+    const participants = await Participant.find({ eventId: eventId })
+    res.json(participants)
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    console.error(err)
+    res.status(500).json({ message: 'Internal Server Error' })
   }
 })
 
+router.post('/:eventId', async (req, res) => {
+  try {
+    const { eventId, name, email, birthdate, source } = req.body
+    const participant = new Participant({
+      eventId: eventId,
+      name: name,
+      email: email,
+      birthdate: birthdate,
+      source: source,
+    })
+    const savedParticipant = await participant.save()
+    res.status(201).json(savedParticipant)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+})
 module.exports = router

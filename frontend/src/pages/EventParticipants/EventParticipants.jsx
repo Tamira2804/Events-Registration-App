@@ -2,41 +2,41 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
+import { Wrapper, Title, List, Item } from './EventParticipants.styled'
+
 const EventParticipants = () => {
   const { eventId } = useParams()
-  const [participants, setParticipants] = useState([])
+  const [event, setEvent] = useState(null)
 
   useEffect(() => {
-    axios
-      .get(`/participants/${eventId}`)
-      .then((res) => {
-        setParticipants(res.data)
-      })
-      .catch((err) => console.error(err))
+    const fetchEvent = async () => {
+      try {
+        const response = await axios.get(`/events/${eventId}`)
+        setEvent(response.data)
+      } catch (error) {
+        console.error('Error fetching event:', error)
+      }
+    }
+
+    fetchEvent()
   }, [eventId])
 
   return (
-    <div>
-      <h1>Учасники події</h1>
-      <ul>
-        {participants.map((participant) => (
-          <li key={participant._id}>
-            <p>
-              <strong>Ім'я:</strong> {participant.name}
-            </p>
-            <p>
-              <strong>Електронна пошта:</strong> {participant.email}
-            </p>
-            <p>
-              <strong>Дата народження:</strong> {participant.dob}
-            </p>
-            <p>
-              <strong>Де дізнався про подію:</strong> {participant.source}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Wrapper>
+      <Title>Event participants</Title>
+      {event ? (
+        <List>
+          {event.participants.map((participant, index) => (
+            <Item key={index}>
+              <p>{participant.name} </p>
+              <p>{participant.email}</p>
+            </Item>
+          ))}
+        </List>
+      ) : (
+        <p>Завантаження...</p>
+      )}
+    </Wrapper>
   )
 }
 

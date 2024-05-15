@@ -16,7 +16,20 @@ mongoose
         description: 'Description 1',
         date: new Date(),
         organizer: 'Organizer 1',
-        participants: [],
+        participants: [
+          {
+            name: 'John',
+            email: 'jones@example.com',
+            dob: '25.05.1980',
+            source: 'social media',
+          },
+          {
+            name: 'Julian',
+            email: 'jones@example.com',
+            dob: '12.02.1999',
+            source: 'social media',
+          },
+        ],
       },
       {
         title: 'Event 2',
@@ -30,7 +43,20 @@ mongoose
         description: 'Description 3',
         date: new Date(),
         organizer: 'Organizer 3',
-        participants: [],
+        participants: [
+          {
+            name: 'John',
+            email: 'jones@example.com',
+            dob: '25.05.1980',
+            source: 'social media',
+          },
+          {
+            name: 'Julian',
+            email: 'jones@example.com',
+            dob: '12.02.1999',
+            source: 'social media',
+          },
+        ],
       },
       {
         title: 'Event 4',

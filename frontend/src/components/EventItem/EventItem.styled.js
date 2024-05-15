@@ -5,7 +5,7 @@ export const CardThumb = styled.li`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 8px;
 
   width: 274px;
   height: 274px;
@@ -20,11 +20,9 @@ export const CardThumb = styled.li`
 `
 export const Title = styled.h3`
   color: var(--colors-text);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-normal);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
   line-height: 1.5;
-  height: 24px;
-  overflow: hidden;
 `
 
 export const Descr = styled.div`
@@ -45,6 +43,21 @@ export const BtnWrapper = styled.div`
 
 export const StyledLink = styled(Link)`
   display: inline-block;
-
+  text-decoration: none;
   color: var(--accent-hover);
+`
+
+export const Btn = styled.button`
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  color: var(--accent-hover);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: var(--accent-hover);
+    color: var(--accent);
+  }
 `

@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const eventRouter = require('./routes/eventRoutes')
-const participantRouter = require('./routes/participantRoutes')
+// const participantRouter = require('./routes/participantRoutes')
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 app.use('/events', eventRouter)
-app.use('/participant', participantRouter)
+// app.use('/participant', participantRouter)
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })

@@ -6,7 +6,9 @@ const eventSchema = new Schema(
     description: { type: String },
     date: { type: Date, required: [true, 'Set date for event'] },
     organizer: { type: String, required: [true, 'Set organizer for event'] },
-    participants: { type: Array, default: [] },
+    participants: [
+      { name: String, email: String, birthdate: Date, source: String },
+    ],
   },
   {
     versionKey: false,
