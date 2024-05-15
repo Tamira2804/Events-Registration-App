@@ -1,8 +1,7 @@
 {
   "name": "events-registration-app",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://Tamira2804.github.io/Events-Registration-App",
+  "private": false,
   "dependencies": {
     "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/jest-dom": "^5.17.0",
