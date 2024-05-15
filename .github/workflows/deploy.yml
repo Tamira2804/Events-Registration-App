@@ -18,6 +18,14 @@ jobs:
           npm run lint:js
           npm run build
 
+      - name: Move to backend directory 🔄
+        run: cd ../backend
+
+      - name: Install dependencies and start backend 🚀
+        run: |
+          npm install
+          npm start
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
