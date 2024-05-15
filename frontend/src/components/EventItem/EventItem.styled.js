@@ -45,6 +45,9 @@ export const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   color: var(--accent-hover);
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 export const Btn = styled.button`
@@ -57,7 +60,6 @@ export const Btn = styled.button`
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    background-color: var(--accent-hover);
-    color: var(--accent);
+    text-decoration: underline;
   }
 `

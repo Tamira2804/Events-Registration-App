@@ -25,16 +25,20 @@ const EventParticipants = () => {
     <Wrapper>
       <Title>Event participants</Title>
       {event ? (
-        <List>
-          {event.participants.map((participant, index) => (
-            <Item key={index}>
-              <p>{participant.name} </p>
-              <p>{participant.email}</p>
-            </Item>
-          ))}
-        </List>
+        event.participants.length > 0 ? (
+          <List>
+            {event.participants.map((participant, index) => (
+              <Item key={index}>
+                <p>{participant.name} </p>
+                <p>{participant.email}</p>
+              </Item>
+            ))}
+          </List>
+        ) : (
+          <p>There are no registered participants</p>
+        )
       ) : (
-        <p>Завантаження...</p>
+        <p>Loading...</p>
       )}
     </Wrapper>
   )
