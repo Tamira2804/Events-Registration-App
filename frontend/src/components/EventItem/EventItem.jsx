@@ -8,17 +8,15 @@ import {
 } from './EventItem.styled'
 
 const EventItem = ({ event }) => {
-  const { title, description, organizer, date } = event
-
   return (
     <CardThumb>
-      <Title>{title}</Title>
-      <Descr>{description}</Descr>
-      <p>{organizer}</p>
-      <p>{date}</p>
+      <Title>{event.title}</Title>
+      <Descr>{event.description}</Descr>
+      <p>{event.organizer}</p>
+      <p>{event.date}</p>
       <BtnWrapper>
-        <StyledLink to={'/registration'}>Registration</StyledLink>
-        <StyledLink to={'/participants'}>View</StyledLink>
+        <StyledLink to={`/register/${event._id}`}>Registration</StyledLink>
+        <StyledLink to={`/participants/${event._id}`}>View</StyledLink>
       </BtnWrapper>
     </CardThumb>
   )
